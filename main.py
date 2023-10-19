@@ -149,7 +149,7 @@ class LabelingTools(QWidget):
         true_ground_image=np.zeros(shape=self.cur_image.shape)
         cur_label_path=os.path.join(self.LABEL_PATH,cur_image_path.split('\\')[-1][:-3]+'txt')
         if cur_label_path in self.label:
-            self.cur_label=np.loadtxt(cur_label_path,dtype=np.uint8)
+            self.cur_label=np.loadtxt(cur_label_path).astype(np.uint8)
             for i in range(1,len(self.cur_label)):
                 if self.cur_label[i]==0:
                     continue
